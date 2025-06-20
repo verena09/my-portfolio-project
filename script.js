@@ -1,9 +1,19 @@
 // script.js
 
-// Contoh sederhana JavaScript: Menampilkan pesan di konsol browser
-console.log("Website portofolio Anda siap!");
+// Pastikan kode dijalankan setelah seluruh halaman HTML dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    const ubahTeksBtn = document.getElementById('ubahTeks');
+    const pesanSambutanParagraf = document.getElementById('pesanSambutan');
 
-// Anda bisa menambahkan JavaScript yang lebih kompleks di sini nanti,
-// seperti efek scroll, validasi form, atau interaksi lainnya.
-// Untuk melihat pesan ini, buka website di browser, klik kanan, pilih "Inspect" atau "Periksa",
-// lalu masuk ke tab "Console".
+    if (ubahTeksBtn && pesanSambutanParagraf) {
+        ubahTeksBtn.addEventListener('click', function() {
+            if (pesanSambutanParagraf.textContent === '') {
+                pesanSambutanParagraf.textContent = 'Halo, senang bertemu di portofolio saya!';
+            } else {
+                pesanSambutanParagraf.textContent = ''; // Kosongkan lagi teksnya
+            }
+        });
+    } else {
+        console.log("Tombol atau paragraf pesan tidak ditemukan di HTML.");
+    }
+});
